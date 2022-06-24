@@ -1,42 +1,43 @@
 <titulo-pagina [titulo]="'Transacciones'"></titulo-pagina>
 <progressbar></progressbar>
-<subtitulo-pagina [subTitulo]="'Compra'"></subtitulo-pagina>
-
+<subtitulo-pagina [subTitulo]="'Venta'"></subtitulo-pagina>
 <div class="row">
     <p-toast (onClose)="closeAlert()" [breakpoints]="{'920px': {width: '100%', right: '0', left: '0'}}"></p-toast>
-    
+
     <div class="px-0 px-lg-5 pt-0 pt-lg-2">
         <div class="row">
             <div class="col-12 col-md-6 my-2">
                 <section class="row">
-                    <informacion-compra
-                        [proveedores]="listaProveedores"
+                    <!-- información venta -->
+                    <informacion-venta
+                        [clientes]="listaClientes"
                         [empleados]="listaEmpleados"
-                        [dataSave]="isProviderSave"
-                        (isDataSave)="isProviderSave=$event"
-                        (proveedorSeleccionado)="modificarProveedorSeleccionado($event)"
+                        [dataSave]="isClienteSave"
+                        (isDataSave)="isClienteSave=$event"
+                        (clienteSeleccionado)="modificarClienteSeleccionado($event)"
                         (empleadoSeleccionado)="modificarEmpleadoSeleccionado($event)"
                         >
-                    </informacion-compra>
+                    </informacion-venta>
                 </section>
                 <br>
-                    <section class="row">
-                        <tabla-detalle-compra
+                <section class="row">
+                    <!-- detalle de venta -->
+                    <tabla-detalle-venta
                             [detalles]="detalleSeleccionado"
                             [dataSave]="isDetalleSave"
                             (isDataSave)="isDetalleSave=$event"
                             >
-                        </tabla-detalle-compra>
-                    </section>
+                        </tabla-detalle-venta>
+                </section>
                 <br>
                 <label 
                 class="ml-3 label-compra" 
                 for="">
-                    MONTO TOTAL: {{MontoTotalCompra  | currency: 'PEN'}}
+                    MONTO TOTAL: {{MontoTotalVenta  | currency: 'PEN'}}
                 </label>
-                
             </div>
             <div class="offset-0 offset-md-1 col-12 col-md-5 mt-1">
+                <!-- tabla prdctos -->
                 <tabla-productos
                 [productos]="listaProductos"
                 [dataSave]="isProductSave"
@@ -51,10 +52,11 @@
                     <button
                         type="button"
                         [disabled]="!verificarCompra()"
-                        (click)="realizarCompra()"
-                        class="py-2 px-5 btn btn-primary">REALIZAR COMPRA
+                        (click)="registrarVenta()"
+                        class="py-2 px-5 btn btn-primary">REALIZAR VENTA
                     </button>
                 </div>
             </div>
         </div>
     </div>
+</div>

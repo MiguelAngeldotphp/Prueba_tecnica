@@ -45,14 +45,12 @@ export class HomeCompraComponent implements OnInit {
   }
 
   public modificarProveedorSeleccionado(proveedor:any) : void {
-    this.proveedorSeleccionado = proveedor.nombre ; 
-    console.log(this.proveedorSeleccionado);
+    this.proveedorSeleccionado = proveedor.nombre ;
     
   }
 
   public modificarEmpleadoSeleccionado(empleado:any) : void {
     this.empleadoSeleccionado = empleado.nombre ; 
-    console.log(this.empleadoSeleccionado);
     
   }
   public modificarDetalleSeleccionado(detalle:DetalleDeCompra) : void {
@@ -69,7 +67,6 @@ export class HomeCompraComponent implements OnInit {
         detail:'El producto seleccionado ya está en el detalle'});
       
     }
-    console.log(this.detalleSeleccionado);
     
   }
 

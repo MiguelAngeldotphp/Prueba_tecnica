@@ -1,15 +1,15 @@
 import { Component, EventEmitter,OnInit , Input, Output,} from '@angular/core';
 import { Table } from 'primeng/table';
-import { DetalleDeCompra } from 'src/app/shared/models/detalle-de-compra.models';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { DetalleDeVenta } from 'src/app/shared/models/detalle-de-venta.models';
 import { BRAND_MODAL_RESPONSIVE } from '../../utils/breakpoint-brand-modal';
 
 @Component({
   selector: 'tabla-productos',
-  templateUrl: './tabla-productos.component.html',
-  styleUrls: ['./tabla-productos.component.css']
+  templateUrl: './tabla-producto.component.html',
+  styleUrls: ['./tabla-producto.component.css']
 })
-export class TablaProductosComponent implements OnInit {
+export class TablaProductoComponent implements OnInit {
 
   @Output() isDataSave = new EventEmitter<boolean>();
   @Input() dataSave! : boolean;
@@ -20,20 +20,19 @@ export class TablaProductosComponent implements OnInit {
   public readonly BRAND_MODAL_RESPONSIVE = BRAND_MODAL_RESPONSIVE;
   @Input() productos: any[]=[]; 
 
-  @Output() detalle = new EventEmitter<DetalleDeCompra>();
+  @Output() detalle = new EventEmitter<DetalleDeVenta>();
 
   public cantidadForm: FormGroup = this.fb.group({
     cantidad: ['', [Validators.required, Validators.pattern('[0-9]+')]]
   });
 
+  public filtroBusquedaProducto: string = '' ;
 
   get cantidad() {
     return this.cantidadForm.get('cantidad');
   }
 
   constructor(private fb : FormBuilder) { }
-
-  public filtroBusquedaProducto: string = '' ;
 
   ngOnInit(): void {
   }
@@ -48,13 +47,13 @@ export class TablaProductosComponent implements OnInit {
 
   public enviarDetalle(): void {
 
-    const detalle : DetalleDeCompra = {
-      detc_comp_id_compra : 0, 
-      detc_nombre_producto : this.producto.nombre,
-      detc_cantidad_producto : this.cantidad?.value , 
-      detc_importe : this.cantidad?.value * this.producto.precio_compra, 
-      detc_id_detalle_compra : 0 , 
-      detc_precio_producto : this.producto.precio_compra
+    const detalle : DetalleDeVenta = {
+      detv_ven_id_venta : 0, 
+      detv_nombre_producto : this.producto.nombre,
+      detv_cantidad_producto : this.cantidad?.value , 
+      detv_importe : this.cantidad?.value * this.producto.precio_compra, 
+      detv_id_detalle_venta : 0 , 
+      detv_precio_producto : this.producto.precio_compra
     }
     this.openModal = false ;
     this.detalle.emit(detalle);
@@ -69,5 +68,4 @@ export class TablaProductosComponent implements OnInit {
     this.cantidadForm.reset({cantidad:''});
     this.openModal = false; 
   }
-
 }

@@ -12,7 +12,9 @@ import { TablaDetalleCompraComponent } from './components/tabla-detalle-compra/t
 @NgModule({
   declarations: [
     HomeCompraComponent,
-    InformacionCompraComponent,InformacionCompraComponent, TablaProductosComponent, TablaDetalleCompraComponent
+    InformacionCompraComponent,
+    TablaProductosComponent, 
+    TablaDetalleCompraComponent
   ],
   imports: [
     CommonModule,

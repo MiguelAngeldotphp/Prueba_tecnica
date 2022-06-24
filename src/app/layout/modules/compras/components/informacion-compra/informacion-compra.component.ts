@@ -34,7 +34,6 @@ export class InformacionCompraComponent implements OnInit {
 
 
   public enviarProveedor():void{
-    console.log(this.dataSave);
     
     if(this.dataSave){
 

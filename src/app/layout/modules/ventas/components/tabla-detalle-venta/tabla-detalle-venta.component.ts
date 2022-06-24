@@ -21,7 +21,6 @@ export class TablaDetalleVentaComponent implements OnInit {
   }
 
   public enviarDetalles(): void{
-    console.log(this.dataSave);
     
     if(this.dataSave){
       this.isDataSave.emit(true);

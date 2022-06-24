@@ -56,7 +56,7 @@ export class HomeCompraComponent implements OnInit {
   public modificarDetalleSeleccionado(detalle:DetalleDeCompra) : void {
 
     if (!this.detalleSeleccionado.find((detalleA:DetalleDeCompra)=> detalleA.detc_nombre_producto === detalle.detc_nombre_producto)){
-      console.log(this.detalleSeleccionado.includes(detalle));
+      
       this.MontoTotalCompra += detalle.detc_importe ; 
       detalle.detc_cantidad_producto = +detalle.detc_cantidad_producto;
       this.detalleSeleccionado.push(detalle);

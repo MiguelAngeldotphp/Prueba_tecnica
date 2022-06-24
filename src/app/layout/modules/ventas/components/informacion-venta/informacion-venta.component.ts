@@ -36,7 +36,6 @@ export class InformacionVentaComponent implements OnInit {
   }
 
   public enviarInformacion():void{
-    console.log(this.dataSave);
     
     if(this.dataSave){
 

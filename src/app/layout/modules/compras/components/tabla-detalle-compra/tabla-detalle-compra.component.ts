@@ -19,8 +19,7 @@ export class TablaDetalleCompraComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public enviarDetalles(): void{
-    console.log(this.dataSave);
+  public enviarDetalles(): void{;
     
     if(this.dataSave){
       this.isDataSave.emit(true);

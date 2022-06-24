@@ -54,12 +54,11 @@ export class HomeVentaComponent implements OnInit {
 
   public modificarEmpleadoSeleccionado(empleado:any) : void {
     this.empleadoSeleccionado = empleado.nombre ; 
-    console.log(this.empleadoSeleccionado);
   }
   public modificarDetalleSeleccionado(detalle:DetalleDeVenta) : void {
 
     if (!this.detalleSeleccionado.find((detalleA:DetalleDeVenta)=> detalleA.detv_nombre_producto === detalle.detv_nombre_producto)){
-      console.log(this.detalleSeleccionado.includes(detalle));
+    
       this.MontoTotalVenta += detalle.detv_importe ; 
       detalle.detv_cantidad_producto = +detalle.detv_cantidad_producto;
       this.detalleSeleccionado.push(detalle);

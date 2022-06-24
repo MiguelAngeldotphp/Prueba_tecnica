@@ -1,0 +1,99 @@
+<div class="row card"> <!-- [ngClass]="{'bg-light':guardar}"> -->
+    <div class="card-header color-header text-white">
+        <div class="row">
+            <div class="mt-2 text-start col-12 col-md-12 col-lg-12 col-xl-4">
+                <p class="h5"><strong>Información de compra</strong></p>
+            </div>
+            <div class="mt-2 offset-0 col-12 offset-md-0 col-md-12 offset-lg-0 col-lg-12 offset-xl-5 col-xl-3">
+                <div class="justify-content-end input-group">
+                    <p class="h5 mr-3">Guardar</p>
+                    <input [(ngModel)]="dataSave" (change)="enviarProveedor()" type="checkbox" class="p-inputswitch">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body"> 
+        <div class="row justify-content-between">
+            <form [formGroup]="proveedorForm" class="mt-2 col-12 col-sm-12 col-md-12 col-xl-12 col-xxl-12 ">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="row">
+                            <!-- PROVEEDOR -->
+                            <label 
+                            class="ml-3 label-compra" 
+                            for="selectProveedor">
+                                BUSCAR PROVEEDOR
+                                <small class="text-danger">
+                                    <strong>(*)</strong>
+                                </small>:
+                        </label>
+                        <div class="col-12">
+                            <p-dropdown 
+                                #proveedorOption
+                                id="selectProveedor"
+                                [options]="proveedores" 
+                                (onFocus)="proveedorOption.resetFilter()"
+                                optionLabel="nombre" 
+                                [filter]="true" 
+                                filterBy="nombre"
+                                formControlName="proveedor"
+                                placeholder="Selecciona proveedor"
+                                [style]="{'width':'100%'}"
+                            ></p-dropdown>
+                            <div *ngIf="proveedor?.invalid && (proveedor?.dirty || proveedor?.touched)"
+                                class="msj-error-form row text-danger text-end p-0">
+                                <small class="col-12" *ngIf="proveedor?.errors?.['required']">
+                                    *El proveedor es requerido.
+                                </small>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="row">
+                            <!-- EMPLEADOS -->
+                            <label 
+                            class="ml-3 label-compra" 
+                            for="selectEmpleado">
+                                BUSCAR EMPLEADOS
+                                <small class="text-danger">
+                                    <strong>(*)</strong>
+                                </small>:
+                            </label>
+                            <div class="col-12">
+                                <p-dropdown 
+                                    #empleadoOption
+                                    id="selectEmpleado"
+                                    [options]="empleados" 
+                                    (onFocus)="empleadoOption.resetFilter()"
+                                    optionLabel="nombre" 
+                                    [filter]="true" 
+                                    filterBy="nombre"
+                                    formControlName="empleado"
+                                    placeholder="Selecciona empleado"
+                                    [style]="{'width':'100%'}"
+                                ></p-dropdown>
+                                <div *ngIf="empleado?.invalid && (empleado?.dirty || empleado?.touched)"
+                                    class="msj-error-form row text-danger text-end p-0">
+                                    <small class="col-12" *ngIf="empleado?.errors?.['required']">
+                                        *El empleado es requerido.
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </form>
+
+            <br>
+
+            <br>
+
+        </div>
+        
+    </div>
+    
+</div>
+
+

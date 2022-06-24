@@ -1,0 +1,68 @@
+<nav class="accordion  sb-sidenav sb-sidenav-dark" id="sidenavAccordion">
+    <div class="sb-sidenav-menu">
+        <div class="nav">
+            <div class="sb-sidenav-menu-heading">Inicio</div>
+
+            <span class="seleccion nav-link" [routerLink]="['/layout']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+                <div class="sb-nav-link-icon"><i class="pi pi-home"></i></div>Dashboard
+            </span>
+
+            <div class="sb-sidenav-menu-heading">Transacciones</div>
+
+            <!-- Módulo de Transacciones -->
+
+            <span 
+                class="seleccion nav-link collapsed"
+                [routerLink]="['/layout','compra']"
+                aria-controls="opcionesTransaccion">
+                <div class="sb-nav-link-icon"><i class="pi pi-shopping-bag"></i></div>Compra
+            </span>
+            <span 
+                class="seleccion nav-link collapsed"
+                [routerLink]="['/layout','venta']"
+                aria-controls="opcionesTransaccion">
+                <div class="sb-nav-link-icon"><i class="pi pi-shopping-bag"></i></div>Venta
+            </span>
+
+            <div class="sb-sidenav-menu-heading">Reportes</div>
+
+            <!-- Módulo de Transacciones -->
+
+            <span 
+                class="seleccion nav-link collapsed"
+                [routerLink]="['/not-found']"
+                aria-controls="opcionesTransaccion">
+                <div class="sb-nav-link-icon"><i class="pi pi-chart-bar"></i></div> Reporte de compra
+            </span>
+            <span 
+                class="seleccion nav-link collapsed"
+                [routerLink]="['/not-found']"
+                aria-controls="opcionesTransaccion">
+                <div class="sb-nav-link-icon"><i class="pi pi-chart-bar"></i></div> Reporte de venta
+            </span>
+                <!-- Opciones del Módulo de transacciones -->
+                <!-- <div class="collapse"
+                    id="opcionesTransaccion"
+                    aria-labelledby="headingOne"
+                    data-bs-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <span
+                                class="nav-link"
+                                [routerLink]="['/','compra']"
+                                routerLinkActive="active"
+                                [routerLinkActiveOptions]="{exact:true}">
+                                Compras
+                            </span>
+                            <span
+                                class="nav-link"
+                                [routerLink]="['/']"
+                                routerLinkActive="active"
+                                [routerLinkActiveOptions]="{exact:true}">
+                                Ventas
+                            </span>
+                        </nav>
+                </div> -->
+        </div>
+    </div>
+
+</nav>

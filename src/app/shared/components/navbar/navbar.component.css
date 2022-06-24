@@ -1,0 +1,46 @@
+.titulo-logo{
+    font-family: Montserrat-Bold;
+    color: #BC993F;
+    
+}
+.grupo-opciones{
+    font-size: 13px;
+    font-family: Montserrat-Medium;
+}
+
+.boton{
+    color: white;
+    border: none;
+    font-family: Montserrat-Bold;
+}
+.boton:hover{
+    box-shadow: 0 0 10px #cda118;
+}
+.boton:active{
+    box-shadow: 0 0 10px #cda118;
+}
+.boton:focus{
+    box-shadow: 0 0 10px #cda118;
+}
+
+.btn-user:hover{
+    color: #cda118;
+}
+
+.opciones:hover{
+    box-shadow: 0 0 10px #cda118;
+}
+
+.username{
+    margin-right: 1rem;
+}
+
+.username:hover{
+    color:#cda118;
+}
+@media screen and (max-width : 768px) {
+    .username{
+        margin-right: 0;
+        display: none;
+    }
+}

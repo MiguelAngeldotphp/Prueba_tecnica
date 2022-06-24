@@ -1,0 +1,32 @@
+import { HttpErrorResponse } from '@angular/common/http';
+import { Component, EventEmitter, OnInit, Output} from '@angular/core';
+import { Router } from '@angular/router';
+import { Respuesta } from '../../models/respuesta.model';
+import { errorAlerta, exitoAlerta } from '../../utils/reutilizables'
+
+@Component({
+  selector: 'navbar',
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.css']
+})
+export class NavbarComponent implements OnInit {
+  @Output() activarSideBar = new EventEmitter<boolean>();
+  private _esconder: boolean = false;
+  public username: string = '';
+  constructor(
+    private router: Router, 
+  ) { }
+
+  ngOnInit(): void {
+  }
+
+  estadoSideBar():void{
+    this._esconder===true?
+      this._esconder = false:
+      this._esconder = true;
+    this.activarSideBar.emit(this._esconder);
+  }
+
+}
+
+

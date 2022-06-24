@@ -1,0 +1,97 @@
+<div class="row card"> <!-- [ngClass]="{'bg-light':guardar}"> -->
+    <div class="card-header color-header text-white">
+        <div class="row">
+            <div class="mt-2 text-start col-12 col-md-12 col-lg-12 col-xl-4">
+                <p class="h5"><strong>Detalle de la compra</strong></p>
+            </div>
+            <div class="mt-2 offset-0 col-12 offset-md-0 col-md-12 offset-lg-0 col-lg-12 offset-xl-5 col-xl-3">
+                <div class="justify-content-end input-group">
+                    <p class="h5 mr-3">Guardar</p>
+                    <input [(ngModel)]="dataSave" (change)="enviarDetalles()" type="checkbox" class="p-inputswitch">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <p-table 
+        [value]="detalles" 
+        dataKey="id" 
+        editMode="row" 
+        responsiveLayout="scroll"
+        >
+        
+        <ng-template pTemplate="header">
+            <tr class="titulo-tabla contenedor">
+                <th class="text-center">Descripcion</th>
+                <th class="text-center">Precio Compra</th>
+                <th class="text-center">Cantidad</th>
+                <th class="text-center">Importe</th>
+                <th class="text-center"></th>
+            </tr>
+
+        </ng-template>
+        
+        <ng-template pTemplate="body" let-detalle let-editing="editing" let-ri="rowIndex">
+            <tr class="filas-tabla contenedor" [pEditableRow]="detalle">
+                <td class="text-center">
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <input pInputText type="text" [(ngModel)]="detalle.detc_nombre_producto">
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            {{detalle.detc_nombre_producto}}
+                        </ng-template>
+                    </p-cellEditor>
+                </td>
+                <td class="text-center">
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <input pInputText type="text" [(ngModel)]="detalle.productoDetalle.detc_precio_producto" required>
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            {{detalle.detc_precio_producto | currency: 'PEN'}}
+                        </ng-template>
+                    </p-cellEditor>
+                </td>
+                <!-- <td class="text-center">
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <p-dropdown [options]="statuses" [(ngModel)]="detalle.inventoryStatus" [style]="{'width':'100%'}"></p-dropdown>
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            {{detalle.inventoryStatus}}
+                        </ng-template>
+                    </p-cellEditor>
+                </td> -->
+                <td class="text-center">
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <input pInputText type="text" [(ngModel)]="detalle.detc_cantidad_producto">
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            {{detalle.detc_cantidad_producto}}
+                        </ng-template>
+                    </p-cellEditor>
+                </td>
+                
+                <td class="text-center">
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <input pInputText type="text" [(ngModel)]="detalle.detc_importe">
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            {{detalle.detc_importe | currency: 'PEN'}}
+                        </ng-template>
+                    </p-cellEditor>
+                </td>
+                <td class="text-center">
+                    <button [disabled]="dataSave" pButton pRipple type="button" icon="pi pi-trash" (click)="eliminarDetalle(detalle)" class="p-button-rounded p-button-text p-button-danger"></button>
+                    <!-- <button *ngIf="!editing" pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil" (click)="onRowEditInit(detalle)" class="p-button-rounded p-button-text mr-2"></button>
+                    <button *ngIf="!editing" pButton pRipple type="button" icon="pi pi-trash" (click)="eliminarDetalle(detalle)" class="p-button-rounded p-button-text p-button-danger"></button>
+                    <button *ngIf="editing" pButton pRipple type="button" pSaveEditableRow icon="pi pi-check" (click)="onRowEditSave(detalle)" class="p-button-rounded p-button-text p-button-success mr-2"></button>
+                    <button *ngIf="editing" pButton pRipple type="button" pCancelEditableRow icon="pi pi-times" (click)="onRowEditCancel(detalle, ri)" class="p-button-rounded p-button-text p-button-danger"></button> -->
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
